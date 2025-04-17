@@ -282,47 +282,59 @@ mutation {
 15. 查詢特定讀者借閱紀錄:
 ```graphql
 query {
-    findAllCategories {
-        ID
-        Name
-        Description
+    findSpecificUserBorrowing(User_ID: 1) {
+      	ID
+        User_ID
+        Book_ID
+        Borrow_Date
+        Return_Date
+        Actual_Return_Date
     }
 }
 ```
 16. 查詢特定書籍借閱紀錄:
 ```graphql
 query {
-    findAllCategories {
-        ID
-        Name
-        Description
+    findSpecificBookBorrowing(Book_ID: 1) {
+      	ID
+        User_ID
+        Book_ID
+        Borrow_Date
+        Return_Date
+        Actual_Return_Date
     }
 }
 ```
 17. 新增借閱紀錄:
 ```graphql
 mutation {
-    addCategory(Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
-        ID
-        Name
-        Description
+    addBorrow(User_ID: 1, Book_ID: 1, Borrow_Date: "2023-04-18", Return_Date: "2025-04-26", Actual_Return_Date: null) {
+      	ID
+        User_ID
+        Book_ID
+        Borrow_Date
+        Return_Date
+        Actual_Return_Date
     }
 }
 ```
 18. 更改借閱紀錄:
 ```graphql
 mutation {
-    updateCategory(ID: 1, Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
-        ID
-        Name
-        Description
+    updateBorrow(ID: 1, User_ID: 1, Book_ID: 1, Borrow_Date: "2023-04-18", Return_Date: "2025-04-26", Actual_Return_Date: "2025-04-20") {
+      	ID
+        User_ID
+        Book_ID
+        Borrow_Date
+        Return_Date
+        Actual_Return_Date
     }
 }
 ```
 19. 刪除借閱紀錄:
 ```graphql
 mutation {
-    deleteCategory(ID: 1) {
+    deleteBorrow(ID: 2) {
         ID
     }
 }
