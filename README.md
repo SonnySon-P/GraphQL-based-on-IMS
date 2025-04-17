@@ -107,61 +107,135 @@ query {
 2. 查詢特定讀者:
 ```graphql
 query {
-  findSpecificUsers(Name: "John Doe", Email: "john@example.com") {
-    ID
-    Name
-    Email
-    Phone
-    Address
-    Membership_Date
-    Membership_Type
-    Status
-  }
+    findSpecificUsers(Name: "John Doe", Email: "john@example.com") {
+        ID
+        Name
+        Email
+        Phone
+        Address
+        Membership_Date
+        Membership_Type
+        Status
+    }
 }
 ```
-3. 新增一名讀者:
+3. 新增讀者:
 ```graphql
 mutation {
-  addUser(Name: "John Doe", Email: "john@example.com", Phone: "123-456789", Address: "Wanhua District, Taipei City, Republic of China", Membership_Date: "2025-04-016 11:05:06", Membership_Type: "premium", Status: "active") {
-    Name
-    Email
-    Phone
-    Address
-    Membership_Date
-    Membership_Type
-    Status
-  }
+    addUser(Name: "John Doe", Email: "john@example.com", Phone: "123-456789", Address: "Wanhua District, Taipei City, Republic of China", Membership_Date: "2025-04-016 11:05:06", Membership_Type: "premium", Status: "active") {
+        Name
+        Email
+        Phone
+        Address
+        Membership_Date
+        Membership_Type
+        Status
+    }
 }
 ```
-4. 更改一名讀者資訊:
+4. 更改讀者資訊:
 ```graphql
 mutation {
-  updateUser(
-    ID: 2,
-    Name: "Tom Chen",
-    Email: "Tom@example.com",
-    Phone: "123-987654",
-    Address: "Xinyi District, Taipei City, Republic of China",
-    Membership_Date: "2024-04-01",
-    Membership_Type: "member",
-    Status: "active"
-  ) {
-    ID
-    Name
-    Email
-    Phone
-    Address
-    Membership_Date
-    Membership_Type
-    Status
-  }
+    updateUser(ID: 2, Name: "Tom Chen", Email: "Tom@example.com", Phone: "123-987654", Address: "Xinyi District, Taipei City, Republic of China", Membership_Date: "2024-04-01", Membership_Type: "member", Status: "active") {
+        ID
+        Name
+        Email
+        Phone
+        Address
+        Membership_Date
+        Membership_Type
+        Status
+    }
 }
 ```
-5. 刪除一名讀者:
+5. 刪除讀者:
 ```graphql
 mutation {
-  deleteUser(ID: 4) {
-    ID
-  }
+    deleteUser(ID: 4) {
+        ID
+    }
+}
+```
+6. 查詢特定書籍名稱:
+```graphql
+query {
+    findSpecificBooksTitle(Title: "Angel Learning") {
+        ID
+        Title
+        Author
+        Publisher
+        Publication_Date
+        ISBN
+        Category
+        Language
+        Pages
+        Location
+        Copies_Available
+        Copies_Borrowed
+    }
+}
+```
+7. 查詢特定書籍ISBN:
+```graphql
+query {
+    findSpecificBooksISBN(ISBN: "ISBN 978-1-16-148410-0") {
+        ID
+        Title
+        Author
+        Publisher
+        Publication_Date
+        ISBN
+        Category
+        Language
+        Pages
+        Location
+        Copies_Available
+        Copies_Borrowed
+    }
+}
+```
+8. 新增書籍:
+```graphql
+mutation {
+    addBook(Title: "Angel Learning", Author: "Xiaoming Wang", Publisher: "Genius Publishing", Publication_Date: "2024-04-01", ISBN: "ISBN 978-1-16-148410-0", Category: 1, Language: "chinese", Pages: 102, Location: "Republic of China", Copies_Available: 3, Copies_Borrowed: 0) {
+        Title
+        Author
+        Publisher
+        Publication_Date
+        ISBN
+        Category
+        Language
+        Pages
+        Location
+        Copies_Available
+        Copies_Borrowed
+    }
+}
+```
+9. 更改書籍資訊:
+```graphql
+mutation {
+    updateBook(ID: 1, Title: "Angel Learning", Author: "Xiaoming Wang", Publisher: "Genius Publishing", Publication_Date: "2024-04-01", ISBN: "ISBN 978-1-16-148410-0", Category: 1, Language: "chinese", Pages: 102, Location: "Republic of China", Copies_Available: 3, Copies_Borrowed: 1) {
+        ID
+        Title
+        Author
+        Publisher
+        Publication_Date
+        ISBN
+        Category
+        Language
+        Pages
+        Location
+        Copies_Available
+        Copies_Borrowed
+    }
+}
+```
+10. 刪除書籍:
+```graphql
+mutation {
+    deleteBook(ID: 1) {
+        ID
+    }
 }
 ```
