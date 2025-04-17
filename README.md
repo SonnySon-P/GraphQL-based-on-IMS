@@ -88,10 +88,80 @@
     node index.js
     ```
 **三、運行程式方式：**
-呼叫此後端平台有多種方式，本篇將介紹以下兩種主要方法。平台的request與response皆為json格式，詳細說明請詳見RESTful API說明文件。
-1. API測試工具軟體：如Postman、Hoppscotch等軟體。
-<br>
-  <div align="center">
-  	<img src="./image/hoppscotch.png" alt="Editor" width="500">
-  </div>
-<br>
+呼叫此後端平台有多種方式，本篇將介紹其中一種API測試工具軟體，Hoppscotch。
+1. 查詢所有讀者:
+```graphql
+query {
+    findAllUsers {
+        ID
+        Name
+        Email
+        Phone
+        Address
+        Membership_Date
+        Membership_Type
+        Status
+    }
+}
+```
+2. 查詢特定讀者:
+```graphql
+query {
+  findSpecificUsers(Name: "John Doe", Email: "john@example.com") {
+    ID
+    Name
+    Email
+    Phone
+    Address
+    Membership_Date
+    Membership_Type
+    Status
+  }
+}
+```
+3. 新增一名讀者:
+```graphql
+mutation {
+  addUser(Name: "John Doe", Email: "john@example.com", Phone: "123-456789", Address: "Wanhua District, Taipei City, Republic of China", Membership_Date: "2025-04-016 11:05:06", Membership_Type: "premium", Status: "active") {
+    Name
+    Email
+    Phone
+    Address
+    Membership_Date
+    Membership_Type
+    Status
+  }
+}
+```
+4. 更改一名讀者資訊:
+```graphql
+mutation {
+  updateUser(
+    ID: 2,
+    Name: "Tom Chen",
+    Email: "Tom@example.com",
+    Phone: "123-987654",
+    Address: "Xinyi District, Taipei City, Republic of China",
+    Membership_Date: "2024-04-01",
+    Membership_Type: "member",
+    Status: "active"
+  ) {
+    ID
+    Name
+    Email
+    Phone
+    Address
+    Membership_Date
+    Membership_Type
+    Status
+  }
+}
+```
+5. 刪除一名讀者:
+```graphql
+mutation {
+  deleteUser(ID: 4) {
+    ID
+  }
+}
+```
