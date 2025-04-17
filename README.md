@@ -123,6 +123,7 @@ query {
 ```graphql
 mutation {
     addUser(Name: "John Doe", Email: "john@example.com", Phone: "123-456789", Address: "Wanhua District, Taipei City, Republic of China", Membership_Date: "2025-04-016 11:05:06", Membership_Type: "premium", Status: "active") {
+        ID
         Name
         Email
         Phone
@@ -198,6 +199,7 @@ query {
 ```graphql
 mutation {
     addBook(Title: "Angel Learning", Author: "Xiaoming Wang", Publisher: "Genius Publishing", Publication_Date: "2024-04-01", ISBN: "ISBN 978-1-16-148410-0", Category: 1, Language: "chinese", Pages: 102, Location: "Republic of China", Copies_Available: 3, Copies_Borrowed: 0) {
+        ID
         Title
         Author
         Publisher
@@ -235,6 +237,92 @@ mutation {
 ```graphql
 mutation {
     deleteBook(ID: 1) {
+        ID
+    }
+}
+```
+11. 查詢所有類別:
+```graphql
+query {
+    findAllCategories {
+        ID
+        Name
+        Description
+    }
+}
+```
+12. 新增類別:
+```graphql
+mutation {
+    addCategory(Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
+        ID
+        Name
+        Description
+    }
+}
+```
+13. 更改類別資訊:
+```graphql
+mutation {
+    updateCategory(ID: 1, Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
+        ID
+        Name
+        Description
+    }
+}
+```
+14. 刪除書籍:
+```graphql
+mutation {
+    deleteCategory(ID: 1) {
+        ID
+    }
+}
+```
+15. 查詢特定讀者借閱紀錄:
+```graphql
+query {
+    findAllCategories {
+        ID
+        Name
+        Description
+    }
+}
+```
+16. 查詢特定書籍借閱紀錄:
+```graphql
+query {
+    findAllCategories {
+        ID
+        Name
+        Description
+    }
+}
+```
+17. 新增借閱紀錄:
+```graphql
+mutation {
+    addCategory(Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
+        ID
+        Name
+        Description
+    }
+}
+```
+18. 更改借閱紀錄:
+```graphql
+mutation {
+    updateCategory(ID: 1, Name: "Science Fiction", Description: "Science fiction is a genre of fiction that explores imaginative and futuristic concepts, often based on science and technology.") {
+        ID
+        Name
+        Description
+    }
+}
+```
+19. 刪除借閱紀錄:
+```graphql
+mutation {
+    deleteCategory(ID: 1) {
         ID
     }
 }
