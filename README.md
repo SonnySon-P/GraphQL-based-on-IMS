@@ -74,7 +74,7 @@
     DB_PORT=5432
     DB_USER=postgres
     DB_PASSWORD=123456
-    DB_NAME=LMS
+    DB_NAME=lsm
     ```
     * 啟動伺服器，請執行以下指令啟動伺服器：
     ```shell
